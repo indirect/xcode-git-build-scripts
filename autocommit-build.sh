@@ -6,6 +6,7 @@
 # branch with the commands:
 #   git checkout master
 #   git merge builds --squash
+#   git commit -m "Description of changes since last commit to master"
 
 if [ -z "`git branch | grep builds`" ]; then
   git co -b builds
