@@ -5,9 +5,9 @@
 #   git tag, and include the current commit's distance from that tag and sha1 hash
 
 # With tag "v1.0", and two commits since then, the build will be:
-#   v1.0 (b2 abc123)
+#   v1.0 (b2 h12345)
 
-# Create new versions with "git tag <version> -m <message>"
+# Create new tags with "git tag <version> -m <message>"
 
 # based on the ruby script by Abizern which was
 # based on the git script by Marcus S. Zarra and Matt Long which was
@@ -17,10 +17,10 @@ gitnum = `/usr/bin/env git describe --long`.chomp.split("-")
 
 version = gitnum[0] + " (b#{gitnum[1]} #{gitnum[2]})"
 
-info_file = ENV['BUILT_PRODUCTS_DIR'] + "/" + ENV['INFOPLIST_PATH']
+info_file = File.join(ENV['BUILT_PRODUCTS_DIR'], ENV['INFOPLIST_PATH'])
 info = File.open(info_file, "r").read
 
-version_re = /([\t ]+CFBundleVersion<\/key>\n[\t ]+).*?(<\/string>)/
+version_re = /([\t ]+<key>CFBundleVersion<\/key>\n[\t ]+<string>).*?(<\/string>)/
 info =~ version_re
 bundle_version_string = $1 + version + $2
 
