@@ -5,7 +5,7 @@
 # If you use this script, you can create more typical commits in the master
 # branch with the commands:
 #   git checkout master
-#   git merge builds --squash
+#   git checkout builds .
 #   git commit -m "Description of changes since last commit to master"
 
 if [ -z "`git branch | grep builds`" ]; then
