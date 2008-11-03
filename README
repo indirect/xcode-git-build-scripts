@@ -1,0 +1,5 @@
+Scripts to help you use git on Xcode projects.
+
+`autocommit-build.sh` will commit to the branch `builds` every time Xcode executes a build.
+
+`git-version.sh` will set the version number in Info.plist based on the most recent git tag. It will include the number of commits since then, and the short version of the sha1 hash of the exact commit that was built.
