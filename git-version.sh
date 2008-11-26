@@ -13,6 +13,13 @@
 # based on the git script by Marcus S. Zarra and Matt Long which was
 # based on the Subversion script by Axel Andersson
 
+# Uncomment to only run when doing a Release build
+# if ENV["BUILD_STYLE"] != "Release"
+#   puts "Not a Release build."
+#   exit
+# end
+
+
 gitnum = `/usr/bin/env git describe --long`.chomp.split("-")
 
 version = gitnum[0] + " (b#{gitnum[1]} #{gitnum[2]})"
